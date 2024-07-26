@@ -124,6 +124,10 @@ class TestAccountService(TestCase):
         self.assertEqual(response.status_code, status.HTTP_415_UNSUPPORTED_MEDIA_TYPE)
 
     # ADD YOUR TEST CASES HERE ...
+    def test_method_not_allowed(self):
+        """It should not allow an illegal method call"""
+        resp = self.client.delete(BASE_URL)
+        self.assertEqual(resp.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
   
     def test_get_account(self):
         """It should Read a single Account"""
@@ -156,3 +160,4 @@ class TestAccountService(TestCase):
         self.assertEqual(updated_account["name"], "Something Known")
 
     
+
