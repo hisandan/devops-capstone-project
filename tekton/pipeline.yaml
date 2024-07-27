@@ -9,7 +9,7 @@ kind: Pipeline
 metadata:  
   name: cd-pipeline
 spec:
-  - name: build-image
+
   workspaces:
     - name: pipeline-workspace
   params:
